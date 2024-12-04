@@ -1,8 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '../node_modules/material-icons/iconfont/material-icons.css';
+@import "../node_modules/animate.css/animate.css";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20240106/pngtree-beautiful-sea-with-fish-wallpaper-image_15576097.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .spacer{
     flex: 1 1 auto;
 }
 
+.centred{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 15%;
+}

@@ -1,6 +1,8 @@
 mat-toolbar {
     background-color: #008ECC;
     color: aliceblue;
+    width: 100%;
+
 }
 p{
     color: aliceblue
