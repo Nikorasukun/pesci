@@ -1,3 +1,5 @@
-class Sessione{
-    logged:boolean = false;
+class Sessione {
+    logged: boolean = false;
+
+    catalogo:Object = [];
 }
