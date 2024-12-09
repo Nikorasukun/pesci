@@ -5,13 +5,13 @@
   margin: 2% auto;
 }
 
-@media (max-width: 499px) {
+@media (max-width: 632px) {
   .catalog-grid {
     grid-template-columns: 1fr;
   }
 }
 
-@media (min-width: 500px) and (max-width: 959px) {
+@media (min-width: 633px) and (max-width: 959px) {
   .catalog-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -44,3 +44,4 @@ img {
   width: 200px;
   height: 150px;
 }
+

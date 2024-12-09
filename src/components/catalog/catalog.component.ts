@@ -31,4 +31,9 @@ export class CatalogComponent {
       this.colonne = 3;
     }
   }
+
+  aggiungiAlCarrello(pesce: number):void{
+
+
+  }
 }

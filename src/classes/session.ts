@@ -12,3 +12,8 @@ class Pesce {
     lunghezza: number = 0;
     immagine: String = "";
 }
+
+class Ordine{
+  // pesce: Pesce = null;
+  quantità: number = 0;
+}
