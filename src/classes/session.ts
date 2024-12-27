@@ -1,5 +1,4 @@
 class Sessione {
-    logged: boolean = false;
 
     catalogo: Pesce[] = [];
 }

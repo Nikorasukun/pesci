@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import "../classes/session"
 
 @Injectable({
@@ -7,9 +7,10 @@ import "../classes/session"
 export class ServiziService {
 
   constructor() { }
-
+  carrello = signal<Pesce[]>([])
+  isLogged = signal<Boolean>(false)
   sessione: Sessione = {
-    logged: false,
+
     catalogo: [
       {
         id: 0, nome: "Pesce mandarino", acqua: "salata", colore: "bianco,arancione",
