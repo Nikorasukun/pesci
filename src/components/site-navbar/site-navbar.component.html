@@ -5,6 +5,11 @@
     <a mat-button routerLink="catalogo" routerLinkActive="router-link-active"><p>Catalogo</p></a>
     <a mat-button routerLink="chisiamo" routerLinkActive="router-link-active"><p>Chi Siamo</p></a>
     <a mat-button routerLink="contatti" routerLinkActive="router-link-active"><p>Contatti</p></a>
+    @if (this.sessione.isLogged() == false) {
+      <mat-icon routerLink="login" routerLinkActive="router-link-active">login</mat-icon>
+    }
+    @else {
+      <mat-icon routerLink="login" routerLinkActive="router-link-active">logout</mat-icon>
+    }
 
-    <mat-icon routerLink="login" routerLinkActive="router-link-active">account_circle</mat-icon>
 </mat-toolbar>
