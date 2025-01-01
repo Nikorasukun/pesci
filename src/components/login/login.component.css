@@ -1,12 +1,16 @@
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 15%;
+.container {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.8 );
+  padding: 20px;
+  border-radius: 10px;
+  height: 30%;
+  width: 40%;
+  align-items: center;
 }
 
-.inputs{
-    width: 25%;
-}
+.inputs {
+  width: 75%;
 
+}

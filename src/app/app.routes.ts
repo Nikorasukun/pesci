@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from '../components/login/login.component';
-import { WhoisComponent } from '../components/whois/whois.component';
 import { CatalogComponent } from '../components/catalog/catalog.component';
 import { ContactsComponent } from '../components/contacts/contacts.component';
 import { HomeComponent } from '../components/home/home.component';
+import { ChisiamoComponent } from '../chisiamo/chisiamo.component';
 
 export const routes: Routes = [
     {
@@ -23,6 +23,6 @@ export const routes: Routes = [
         component: CatalogComponent
     }, {
         path: "chisiamo",
-        component: WhoisComponent
+        component: ChisiamoComponent
     }
 ];
