@@ -17,6 +17,8 @@ export class CatalogComponent {
 
   colonne: number = 1;
 
+  constructor() {}
+
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.updateGridCols(event.target.innerWidth);
@@ -32,8 +34,15 @@ export class CatalogComponent {
     }
   }
 
-  aggiungiAlCarrello(pesce: number):void{
-
-
+  aggiungiAlCarrello(pesce: number): void {
+    if (this.pesci.isLogged()) {
+      const pesceDaAggiungere: Pesce | undefined =
+        this.pesci.sessione.catalogo.find((element) => element.id == pesce);
+      pesceDaAggiungere != undefined
+        ? this.pesci.carrello().push(pesceDaAggiungere)
+        : alert('errore');
+    } else {
+      alert("E' necessario essere loggati per poter svolgere questa operazione");
+    }
   }
 }

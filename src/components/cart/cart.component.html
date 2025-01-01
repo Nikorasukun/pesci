@@ -3,7 +3,11 @@
   <mat-divider></mat-divider>
   @for(elemento of this.sessione.carrello(); track elemento){
   <mat-list-item>
-    <!-- da implementare la lista -->
+    <div>{{elemento.immagine}}</div>
+    <div>{{elemento.nome}}</div>
+    <div>{{elemento.acqua}}</div>
+    <div>{{elemento.colore}}</div>
+    <div>{{elemento.lunghezza}}</div>
   </mat-list-item>
   }
 
