@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
-import "../classes/session"
+import { Ordine, Sessione, Pesce } from '../classes/session';
+
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import "../classes/session"
 export class ServiziService {
 
   constructor() { }
-  carrello = signal<Pesce[]>([])
+
   isLogged = signal<Boolean>(false)
   sessione: Sessione = {
 
@@ -37,5 +38,10 @@ export class ServiziService {
         lunghezza: 0.30, immagine: "betta.jpg"
       },
     ]
+
   }
+  carrello = signal<Ordine[]>(
+    this.sessione.catalogo.map((pesce) => new Ordine(pesce, 0))
+  );
+
 }

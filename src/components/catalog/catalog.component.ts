@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { ServiziService } from '../../services/servizi.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-catalog',
@@ -13,11 +14,11 @@ import { ServiziService } from '../../services/servizi.service';
   styleUrl: './catalog.component.css',
 })
 export class CatalogComponent {
-  pesci = inject(ServiziService);
+  sessione = inject(ServiziService);
 
   colonne: number = 1;
 
-  constructor() {}
+  constructor(private router:Router) {}
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -35,14 +36,16 @@ export class CatalogComponent {
   }
 
   aggiungiAlCarrello(pesce: number): void {
-    if (this.pesci.isLogged()) {
-      const pesceDaAggiungere: Pesce | undefined =
-        this.pesci.sessione.catalogo.find((element) => element.id == pesce);
-      pesceDaAggiungere != undefined
-        ? this.pesci.carrello().push(pesceDaAggiungere)
-        : alert('errore');
-    } else {
-      alert("E' necessario essere loggati per poter svolgere questa operazione");
+    if(this.sessione.isLogged()){
+      this.sessione.carrello().map((element) => {
+        if(element.pesce?.id == pesce){
+          element.quantità++
+          return
+        }
+      })
+    }
+    else{
+      this.router.navigate(['/login'])
     }
   }
 }

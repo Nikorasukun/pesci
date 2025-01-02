@@ -8,17 +8,29 @@ import { MatTableModule } from '@angular/material/table';
   selector: 'app-cart',
   imports: [MatTableModule],
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.css'
+  styleUrl: './cart.component.css',
 })
-
-
 export class CartComponent {
-  constructor() { }
-  sessione = inject(ServiziService)
-  displayedColumns: string[] = ['image', 'nome', 'acqua', 'lunghezza', 'actions'];
+  constructor() {}
+  sessione = inject(ServiziService);
+  displayedColumns: string[] = [
+    'image',
+    'nome',
+    'acqua',
+    'lunghezza',
+    'quantita',
+    'actions',
+  ];
   dataSource = this.sessione.carrello();
 
-  removeFromCart(id:number){
-    //TODO --> fare questo metodo
+  removeFromCart(id: number) {
+    console.log(this.sessione.carrello());
+
+    this.sessione.carrello().map((element) => {
+      if (element.pesce?.id == id) {
+        element.quantità--;
+        return;
+      }
+    });
   }
 }

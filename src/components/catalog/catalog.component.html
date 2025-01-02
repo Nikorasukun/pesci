@@ -1,5 +1,5 @@
 <div class="catalog-grid">
-  @for(pesce of pesci.sessione.catalogo; track pesce){
+  @for(pesce of sessione.sessione.catalogo; track pesce){
   <mat-card class="example-card" appearance="outlined">
     <mat-card-header>
       <mat-card-title>{{pesce.nome}}</mat-card-title>
@@ -13,7 +13,6 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <!-- <mat-icon>shopping_cart</mat-icon> -->
       <button class="material-icons" (click)="aggiungiAlCarrello(pesce.id!)">shopping_cart</button>
     </mat-card-actions>
   </mat-card>
