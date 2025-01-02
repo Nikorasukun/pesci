@@ -4,7 +4,7 @@ import { CatalogComponent } from '../components/catalog/catalog.component';
 import { ContactsComponent } from '../components/contacts/contacts.component';
 import { HomeComponent } from '../components/home/home.component';
 import { ChisiamoComponent } from '../chisiamo/chisiamo.component';
-
+import { CartComponent } from '../components/cart/cart.component';
 export const routes: Routes = [
     {
         path : "login",
@@ -24,5 +24,9 @@ export const routes: Routes = [
     }, {
         path: "chisiamo",
         component: ChisiamoComponent
+    }, 
+    {
+        path: "cart",
+        component: CartComponent
     }
 ];
