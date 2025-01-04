@@ -13,10 +13,10 @@ export class Pesce {
 
 export class Ordine {
   pesce: Pesce | undefined = undefined;
-  quantità: number = 0;
+  quantita: number = 0;
 
   constructor(p: Pesce, q: number) {
     this.pesce = p;
-    this.quantità = q;
+    this.quantita = q;
   }
 }

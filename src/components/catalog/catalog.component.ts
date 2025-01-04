@@ -39,7 +39,8 @@ export class CatalogComponent {
     if(this.sessione.isLogged()){
       this.sessione.carrello().map((element) => {
         if(element.pesce?.id == pesce){
-          element.quantità++
+          element.quantita++
+          console.log(element)
           return
         }
       })
