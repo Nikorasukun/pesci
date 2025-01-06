@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, OnInit } from '@angular/core';
 // import {MatList, MatListItem} from '@angular/material/list'
 // import { MatDivider } from '@angular/material/divider';
 import { ServiziService } from '../../services/servizi.service';
@@ -12,9 +12,11 @@ import { elementAt } from 'rxjs';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
-export class CartComponent {
+export class CartComponent{
   constructor() {}
+  cart: Ordine[] = [];
   sessione = inject(ServiziService);
+
   displayedColumns: string[] = [
     'image',
     'nome',
@@ -31,18 +33,21 @@ export class CartComponent {
     this.sessione.carrello().map((element) => {
       if (element.pesce?.id == id) {
         element.quantita--;
+        this.dataSource = this.loadCart();
         return;
       }
     });
   }
 
   loadCart(): Ordine[] {
+    let nr:number = 0;
     let ret: Ordine[] = [];
     this.sessione.carrello().forEach((element) => {
       if (element.quantita > 0) {
         ret.push(element);
-      }
+        nr+=element.quantita;      }
     });
+    this.sessione.cartLenght.set(nr)
     return ret;
   }
 }

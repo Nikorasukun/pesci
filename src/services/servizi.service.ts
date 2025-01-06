@@ -10,6 +10,7 @@ export class ServiziService {
   constructor() { }
 
   isLogged = signal<Boolean>(false)
+  cartLenght = signal<number>(0)
   sessione: Sessione = {
 
     catalogo: [

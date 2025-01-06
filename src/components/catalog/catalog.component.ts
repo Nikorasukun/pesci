@@ -40,7 +40,7 @@ export class CatalogComponent {
       this.sessione.carrello().map((element) => {
         if(element.pesce?.id == pesce){
           element.quantita++
-          console.log(element)
+          this.sessione.cartLenght.set(this.sessione.cartLenght() + 1)
           return
         }
       })

@@ -11,7 +11,7 @@
     @else {
       <span style="margin: 0.3%;"></span>
       <mat-icon routerLink="cart" routerLinkActive="router-link-active" >shopping_cart</mat-icon>
-      <div  routerLink="cart" routerLinkActive="router-link-active">(0)</div>
+      <div  routerLink="cart" routerLinkActive="router-link-active">({{this.sessione.cartLenght()}})</div>
       <span style="margin: 0.3%;"></span>
       <mat-icon (click)="logout()">logout</mat-icon>
     }
