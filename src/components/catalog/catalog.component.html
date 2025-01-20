@@ -1,0 +1,20 @@
+<div class="catalog-grid">
+  @for(pesce of sessione.sessione.catalogo; track pesce){
+  <mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>{{pesce.nome}}</mat-card-title>
+      <mat-card-subtitle>Acqua: {{pesce.acqua}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{pesce.immagine}}" alt="foto del pesce">
+    <mat-card-content>
+      <p>
+        <li>Colori: {{pesce.colore}}</li>
+        <li>Lunghezza: {{pesce.lunghezza}} cm</li>
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button class="material-icons" (click)="aggiungiAlCarrello(pesce.id!)">shopping_cart</button>
+    </mat-card-actions>
+  </mat-card>
+  }
+</div>
