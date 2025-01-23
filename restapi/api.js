@@ -9,7 +9,7 @@ var router = express.Router();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
-app.use('api', router);
+app.use('/api', router);
 
 router.use((request, response, next)=>{{
     console.log('Server is running...');
@@ -18,7 +18,7 @@ router.use((request, response, next)=>{{
 
 router.route('/clienti').get(
     (request, response) => {
-        Db.getCustomers().then(
+        Db.getCustomers(request).then(
             (data) => {
                 response.json(data[0])
             }
@@ -35,6 +35,6 @@ router.route('/clienti/:id').get(
     }
 )
 
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 8089
 app.listen(port)
-console.log('APIs are listening on port')
+console.log('APIs are listening on port ', port)
