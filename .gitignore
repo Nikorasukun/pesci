@@ -41,7 +41,7 @@ testem.log
 .DS_Store
 Thumbs.db
 node_modules
-dbconfig.js
+dbconfig.cjs
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # Compiled output
@@ -81,6 +81,6 @@ yarn-error.log
 testem.log
 /typings
 
-# System files
+# System 
 .DS_Store
 Thumbs.db
