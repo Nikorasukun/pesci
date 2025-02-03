@@ -1,0 +1,17 @@
+<p style="color: white;">ELENCO CLIENTI</p>
+<tr style="color: white;">
+    <th>NOME</th>
+    <th>EMAIL</th>
+    <th>ISCRIZIONE</th>
+</tr>
+<table name="CLIENTI" style="color: white;">
+    @for(cliente of this.clienti; track clienti){
+        <tr>
+            <td>| {{cliente.Nome}} |</td>
+            <td>| {{cliente.Email}} |</td>
+            <td>| {{cliente.DataIscrizione}}| </td>
+        </tr>
+    }
+</table>
+
+<button (click)="MostraClienti()">odio matteo</button>
