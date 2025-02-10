@@ -26,6 +26,16 @@ router.route('/clienti').get(
     }
 )
 
+router.route('/pesci').get(
+  (request, response) => {
+    Db.getPesci(request).then(
+      (data) => {
+        response.json(data[0])
+      }
+    )
+  }
+)
+
 router.route('/clienti/:id').get(
     (request, response) => {
         Db.getCustomer(request.params.id)

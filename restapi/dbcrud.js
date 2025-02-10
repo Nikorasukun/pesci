@@ -9,9 +9,22 @@ async function getCustomers() {
         return elenco.recordsets
     }
     catch (error) {
-        console.log(elenco)
+        console.log(error)
     }
 }
+
+async function getPesci() {
+  try {
+      let pool = await sql.connect(config)
+      let elenco = await pool.request().query("SELECT * FROM Catalogo")
+
+      return elenco.recordsets
+  }
+  catch (error) {
+      console.log(error)
+  }
+}
+
 async function getCustomer(id) {
     try {
         let pool = await sql.connect(config)
@@ -28,5 +41,6 @@ async function getCustomer(id) {
 
 module.exports = {
     getCustomers: getCustomers,
-    getCustomer: getCustomer
+    getCustomer: getCustomer,
+    getPesci: getPesci,
 }
