@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -7,15 +7,18 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './chisiamo.component.html',
   styleUrl: './chisiamo.component.css'
 })
-export class ChisiamoComponent {
+export class ChisiamoComponent implements OnInit {
   http = inject(HttpClient);
   clienti:any
+
+  ngOnInit(): void {
+    this.MostraClienti();
+  }
 
   MostraClienti(){
     this.http.get("http://localhost:8089/api/clienti").subscribe(
       {
         next: clienti => {
-          console.log("ciao")
           this.clienti = clienti; //do il risultato giusto
         },
         error: error => {
@@ -24,6 +27,4 @@ export class ChisiamoComponent {
       }
     )
   }
-  
-
 }

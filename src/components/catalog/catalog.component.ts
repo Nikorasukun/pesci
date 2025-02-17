@@ -1,10 +1,11 @@
 import { MatIconModule } from '@angular/material/icon';
-import { Component, HostListener, inject, Inject } from '@angular/core';
+import { Component, HostListener, inject, Inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { ServiziService } from '../../services/servizi.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-catalog',
@@ -13,7 +14,11 @@ import { Router } from '@angular/router';
   templateUrl: './catalog.component.html',
   styleUrl: './catalog.component.css',
 })
-export class CatalogComponent {
+export class CatalogComponent implements OnInit {
+  ngOnInit(): void {
+    this.MostraPesci();
+  }
+
   sessione = inject(ServiziService);
 
   colonne: number = 1;
@@ -37,16 +42,36 @@ export class CatalogComponent {
 
   aggiungiAlCarrello(pesce: number): void {
     if(this.sessione.isLogged()){
+      console.log(this.sessione.carrello());
       this.sessione.carrello().map((element) => {
         if(element.pesce?.id == pesce){
           element.quantita++
           this.sessione.cartLenght.set(this.sessione.cartLenght() + 1)
+          console.log('pesce incrementato')
           return
         }
+        else {console.log(`pesce saltato\nelement.pesce?.id: ${element.pesce?.id}\npesce: ${pesce}`)}
       })
+      console.log(this.sessione.carrello)
     }
     else{
       this.router.navigate(['/login'])
     }
+  }
+
+  http = inject(HttpClient);
+  pesci:any
+
+  MostraPesci(){
+    this.http.get("http://localhost:8089/api/pesci").subscribe(
+      {
+        next: pesce => {
+          this.pesci = pesce; //do il risultato giusto
+        },
+        error: error => {
+          console.error("error fetching data ", error)
+        }
+      }
+    )
   }
 }
